@@ -1,0 +1,63 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <seed-element></seed-element>
+
+@element seed-element
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://polymerlabs.github.io/seed-element
+-->
+<polymer-element name="video-view" attributes="notitle author source">
+  <template>
+
+    <!-- <link rel="stylesheet" href="video-element.css" /> -->
+    
+    <h1>Video View Placeholder</h1>
+    
+
+  </template>
+
+  <script>
+
+    Polymer('video-view', {
+      /**
+       * The `author` attribute sets an initial author
+       * 
+       * @attribute author
+       * @type string
+       * @default 'Rohan, David, Roshan, R2'
+       */
+      author: 'Rohan, David, Roshan, R2',
+
+      ready: function() {
+        // Ready is a lifecycle callback.
+        // You can do setup work in here.
+        // More info: http://www.polymer-project.org/docs/polymer/polymer.html#lifecyclemethods
+      },
+
+      /**
+       * The video source.
+       * 
+       * @attribute source
+       * @type string
+       */
+      source: null,
+
+      /**
+       * Initializes connection.
+       *
+       * @method connect
+       */
+      connect: function () {
+        console.info('VideoView.connect', 'source:', source);
+      }
+    });
+
+  </script>
+
+</polymer-element>
