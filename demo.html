@@ -5,15 +5,15 @@
   <title>seed-element Demo</title>
 
   <script src="../platform/platform.js"></script>
-  <script src="http://simplewebrtc.com/latest.js"></script> 
+  <script src="simplewebrtc.js"></script> 
   <link rel="import" href="seed-element.html">
-  <link rel="import" href="video-view.html">
+  <link rel="import" href="local-view.html">
+  <link rel="import" href="remote-views.html">
+  <link rel="import" href="web-rtc.html">
 </head>
 <body unresolved>
-
-  <p>An example of using <code>&lt;seed-element></code>:</p>
-
-	<video-view id="remote" source="remote-foobar"></video-view>
-	<video-view id="local" source="local-foobar"></video-view>
+	<video-view id="localFeed"></video-view>
+	<remote-views id="remoteFeeds"></remote-views>
+  <web-rtc localId="localFeed" remoteId="remoteFeeds" autoRequestMedia></web-rtc>	
 </body>
 </html>
