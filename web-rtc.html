@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <seed-element></seed-element>
+
+@element seed-element
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://polymerlabs.github.io/seed-element
+-->
+<polymer-element name="web-rtc" attributes="localId remoteId autoRequestMedia">
+  <script>
+
+    Polymer('web-rtc', {
+      /**
+       * The `author` attribute sets an initial author
+       * 
+       * @attribute author
+       * @type string
+       * @default 'Rohan, David, Roshan, R2'
+       */
+      author: 'Rohan, David, Roshan, R2',
+
+      /**
+       * Id of a video element that displays local feed.
+       * 
+       * @attribute local
+       * @type string
+       */
+      localId: null,
+
+      /**
+       * Id of a video element that displays remote feed.
+       * 
+       * @attribute local
+       * @type string
+       */
+      remoteId: null,
+
+      /**
+       * Indicates whether permissions for media should be requested autmoatically.
+       * 
+       * @attribute autoRequestMedia
+       * @type boolean
+       * @default true
+       */
+      autoRequestMedia: true,
+
+      ready: function () {
+        console.info('WebRtc.ready');
+        this.initialize();
+      },
+
+      initialize: function () {
+        console.info('WebRtc.initialize');
+        console.info('localId:', this.localId);
+        console.info('remoteId', this.remoteId);
+        console.info('autoRequestMedia:', this.autoRequestMedia);
+
+        var webRtc = new SimpleWebRTC({
+          // the id/element dom element that will hold "our" video
+          localVideoEl: this.localId,
+          // the id/element dom element that will hold remote videos
+          remoteVideosEl: this.remoteId,
+          // immediately ask for camera access
+          autoRequestMedia: this.autoRequestMedia
+        });
+
+        webRtc.on('readyToCall', function () {
+          console.info('readyToCall');
+          webRtc.joinRoom('abc');
+        });
+      }
+    });
+
+  </script>
+
+</polymer-element>

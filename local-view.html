@@ -1,0 +1,52 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <seed-element></seed-element>
+
+@element seed-element
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://polymerlabs.github.io/seed-element
+-->
+<polymer-element name="local-view" attributes="src">
+  <template>
+    <link rel="stylesheet" href="local-view.css" />
+    <content></content>    
+  </template>
+
+  <script>
+
+    Polymer('local-view', {
+      ready: function() {
+        
+      },
+
+      /**
+       * The video source.
+       * 
+       * @attribute source
+       * @type string
+       */
+      src: null,
+
+      srcChanged: function(oldValue, newValue) {
+        console.info('LocalView.src:changed', oldValue, newValue);
+      },
+
+      /**
+       * Initializes connection.
+       *
+       * @method connect
+       */
+      connect: function () {
+        console.info('LocalView.connect', 'source:', source);
+      }
+    });
+
+  </script>
+
+</polymer-element>
